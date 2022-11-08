@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styleform.css">
+
+
+    </head>
+    <body>
+        <div class="form">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's create your account!</div>
+                <div class="input-container ic1">
+                    <input id="firstname" class="input" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                    <label for="firstname" class="placeholder">First name</label>
+                </div>
+                <div class="input-container ic2">
+                    <input id="lastname" class="input" type="text" placeholder=" " />
+                    <div class="cut"></div>
+                        <label for="lastname" class="placeholder">Last name</label>
+                    </div>
+                        <div class="input-container ic2">
+                            <input id="email" class="input" type="text" placeholder=" " />
+                            <div class="cut cut-short"></div>
+                                    <label for="email" class="placeholder">Email</>
+                        </div>
+
+
+
+                        <!-- Password authentication -->
+
+                        <div class="input-container ic2">
+                            <input id="Password" class="input" type="password" placeholder=" " />
+                            <div class="cut cut-short"></div>
+                                    <label for="password" class="placeholder">Password</>
+                                    </div>
+
+                        <!-- Confirm Password -->
+
+                        <div class="input-container ic2">
+                            <input id="cPassword" class="input" type="password" placeholder=" " />
+                            <div class="cut cut-short"></div>
+                                    <label for="cpassword" class="placeholder">Confirm Password</>
+
+                        <!-- Number -->
+                        </div>
+                        <div class="input-container ic2">
+                            <input id="mnumber" class="input" type="number" placeholder=" " />
+                            <div class="cut cut-short"></div>
+                                    <label for="mnumber" class="placeholder">Number</>
+                                    </div>
+
+                                                <div class="input-container ic2" style="color:white">
+                        <input id="checkbox" type="checkbox" />
+                                 <label for="checkbox"> I agree to these <a href="#" >Terms and Conditions</a>.</label> 
+                                 </div> 
+                        <button type="text" class="submit">submit</button> 
+                    
+                <!-- Javascript begins here............ -->
+                <script>
+
+
+var email = document.forms['loginform']['email'];
+        var password = document.forms['loginform']['password'];
+        var cpassword = document.forms['loginform']['cpassword'];
+        var btn = document.getElementById('btn-login');
+
+        function validate(e){
+            e.preventDefault();
+        }
+
+        document.querySelectorAll('#loginform input').forEach(e=>{
+            e.addEventListener('keyup', function(event){
+                var isValid = true;
+                if(!email.validity.valid || !password.validity.valid){
+                    isValid = false;
+                }
+
+                if(password.value != cpassword.value){
+                    isValid = false;
+                    console.log('invalid password')
+                }
+
+                if(!isValid){
+                    btn.setAttribute('disabled', true)
+                }
+                else{
+                    btn.removeAttribute('disabled');
+                }
+            })
+        });
+        
+
+                </script>
+
+    </body>
+</html>
